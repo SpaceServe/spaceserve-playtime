@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:shulker_shell"
+    },
+    "title": "Shulker buster",
+    "description": "Spend 10 days in the end"
+  },
+  "parent": "playtime:root",
+
+  "criteria": {
+    "requirement": {
+      "trigger": "spaceserve:playtime",
+      "conditions": {
+        "playtime": {
+          "time": {
+            "minutes": 3
+          },
+          "afk": false,
+          "dimensions": [
+            "minecraft:the_end"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "spaceserve-playtime-testmod",
+  "version": "${version}",
+  "name": "SpaceServe Playtime Lib Testmod",
+  "description": "Testmod for SpaceServe Playtime Lib",
+  "authors": [
+    "SpaceClouds42"
+  ],
+  "contact": {
+    "homepage": "https://github.com/SpaceServe/spaceserve-playtime/wiki",
+    "sources": "https://github.com/SpaceServe/spaceserve-playtime",
+    "issues": "https://github.com/SpaceServe/spaceserve-playtime/issues"
+  },
+  "license": "LGPL-3.0",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "value": "org.spaceserve.playtime.test.Common::INSTANCE"
+      }
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "fabric-language-kotlin": ">=1.6.0+kotlin.1.5.0",
+    "minecraft": ">=1.17"
+  }
+}

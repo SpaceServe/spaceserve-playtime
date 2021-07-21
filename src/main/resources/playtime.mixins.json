@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "org.spaceserve.playtime.mixin",
+  "compatibilityLevel": "JAVA_16",
+
+  "mixins": [
+    "DataStorage",
+    "PlaytimeCriterionTrigger",
+    "PlaytimeTracking",
+    "EmptyJavaMixin"
+  ],
+
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
