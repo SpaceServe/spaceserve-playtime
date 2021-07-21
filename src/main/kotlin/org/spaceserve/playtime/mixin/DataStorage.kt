@@ -8,6 +8,7 @@ import net.minecraft.nbt.NbtLong
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
 import net.minecraft.util.Util
+import org.apache.logging.log4j.LogManager
 import org.spaceserve.playtime.api.ITrackPlaytime
 import org.spaceserve.playtime.api.PlaytimeEvents
 import org.spongepowered.asm.mixin.Mixin
@@ -22,7 +23,7 @@ abstract class DataStorage : ITrackPlaytime {
     override val times: MutableMap<Identifier, Pair<Duration, Duration>> = LinkedHashMap()
 
     override var isAfk: Boolean = false
-        set(value) {
+        set(value) { // TODO: Move event raising to proper places, currently causes double events when respawning
             if (value == field) { return } // Don't raise events if the set value is the same as the current value
 
             if (value) {
@@ -74,8 +75,9 @@ abstract class DataStorage : ITrackPlaytime {
 
                 isAfk = playtimeTag.getBoolean("afk")
 
-                playtimeTag.getCompound("DimensionTimes").keys.forEach {
-                    val dimensionTimeTag = playtimeTag.getCompound(it)
+                val dimensionTimesTag = playtimeTag.getCompound("DimensionTimes")
+                dimensionTimesTag.keys.forEach {
+                    val dimensionTimeTag = dimensionTimesTag.getCompound(it)
                     val id = Identifier.tryParse(it)
                     val all = dimensionTimeTag.getLong("all")
                     val afk = dimensionTimeTag.getLong("afk")

@@ -6,6 +6,7 @@ import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket
 import net.minecraft.server.network.ServerPlayNetworkHandler
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Util
+import org.apache.logging.log4j.LogManager
 import org.spaceserve.playtime.api.ITrackPlaytime
 import org.spongepowered.asm.mixin.Mixin
 import org.spongepowered.asm.mixin.injection.At
@@ -23,7 +24,7 @@ abstract class PlaytimeTracking {
     private var previousPlaytimeUpdate: Long = Util.getMeasuringTimeMs()
 
     @Inject(
-        method = ["<init>"],
+        method = ["<init>", "onClientStatus"],
         at = [At(value = "TAIL")]
     )
     private fun lateinit(ci: CallbackInfo) {
