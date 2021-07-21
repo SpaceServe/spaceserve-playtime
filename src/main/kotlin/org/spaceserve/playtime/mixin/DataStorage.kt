@@ -8,9 +8,7 @@ import net.minecraft.nbt.NbtLong
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
 import net.minecraft.util.Util
-import org.apache.logging.log4j.LogManager
 import org.spaceserve.playtime.api.ITrackPlaytime
-import org.spaceserve.playtime.api.PlaytimeEvents
 import org.spongepowered.asm.mixin.Mixin
 import org.spongepowered.asm.mixin.injection.At
 import org.spongepowered.asm.mixin.injection.Inject
@@ -23,17 +21,6 @@ abstract class DataStorage : ITrackPlaytime {
     override val times: MutableMap<Identifier, Pair<Duration, Duration>> = LinkedHashMap()
 
     override var isAfk: Boolean = false
-        set(value) { // TODO: Move event raising to proper places, currently causes double events when respawning
-            if (value == field) { return } // Don't raise events if the set value is the same as the current value
-
-            if (value) {
-                PlaytimeEvents.raise(PlaytimeEvents.PlayerAfkEvent(this as Any as ServerPlayerEntity))
-            } else {
-                PlaytimeEvents.raise(PlaytimeEvents.PlayerActiveEvent(this as Any as ServerPlayerEntity))
-            }
-
-            field = value
-        }
 
     override var lastLookTime: Long = Util.getMeasuringTimeMs()
 

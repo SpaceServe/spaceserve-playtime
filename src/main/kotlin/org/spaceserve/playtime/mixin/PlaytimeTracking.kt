@@ -6,8 +6,8 @@ import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket
 import net.minecraft.server.network.ServerPlayNetworkHandler
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Util
-import org.apache.logging.log4j.LogManager
 import org.spaceserve.playtime.api.ITrackPlaytime
+import org.spaceserve.playtime.api.PlaytimeEvents
 import org.spongepowered.asm.mixin.Mixin
 import org.spongepowered.asm.mixin.injection.At
 import org.spongepowered.asm.mixin.injection.Inject
@@ -73,6 +73,7 @@ abstract class PlaytimeTracking {
                     (timePair?.first ?: elapsedDuration) to ((timePair?.second ?: Duration.ZERO) + elapsedDuration)
 
                 playtimePlayer.isAfk = true
+                PlaytimeEvents.raise(PlaytimeEvents.PlayerAfkEvent(player))
             }
         }
     }
@@ -87,6 +88,7 @@ abstract class PlaytimeTracking {
 
             if (playtimePlayer.isAfk) {
                 playtimePlayer.isAfk = false
+                PlaytimeEvents.raise(PlaytimeEvents.PlayerActiveEvent(player))
             }
         }
     }

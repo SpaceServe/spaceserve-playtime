@@ -12,14 +12,14 @@ object PlaytimeEvents {
     private val playerActiveActions = mutableSetOf<(ServerPlayerEntity) -> Unit>()
 
     /**
-     * Raised when a player has been afk for 5 minutes.
+     * [Raised when a player has been afk for 5 minutes.][PlaytimeTracking.checkForAfk]
      */
     fun onPlayerAfk(action: (ServerPlayerEntity) -> Unit) {
         playerAfkActions.add(action)
     }
 
     /**
-     * Raised when a player is no longer afk
+     * [Raised when a player is no longer afk.][PlaytimeTracking.improvedAfkDetection]
      */
     fun onPlayerActive(action: (ServerPlayerEntity) -> Unit) {
         playerActiveActions.add(action)
