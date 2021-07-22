@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "spaceserve-playtime",
   "version": "${version}",
-  "name": "SpaceServe Playtime Lib",
+  "name": "SpaceServe Playtime API",
   "description": "A library for all things playtime",
   "authors": [
     "SpaceClouds42"
