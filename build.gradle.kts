@@ -6,7 +6,6 @@ val loaderVersion: String by project
 val fabricApiVersion: String by project
 val languageAdapterVersion: String by project
 val kotlinxSerializationVersion: String by project
-val configVersion: String by project
 val modVersion: String by project
 val mavenGroup: String by project
 val archivesBaseName: String by project
@@ -49,9 +48,6 @@ dependencies {
 
     // Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinxSerializationVersion")
-
-    // Aegis
-    modImplementation("com.github.P03W:Aegis:3.0.0")
 
     // Tests
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
