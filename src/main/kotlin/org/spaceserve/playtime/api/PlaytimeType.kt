@@ -1,18 +1,18 @@
 package org.spaceserve.playtime.api
 
-enum class PlaytimeType(val asByte: Byte) {
+enum class PlaytimeType {
     /**
      * Playtime where the player was actively playing
      */
-    Active(1),
+    Active,
 
     /**
      * Playtime where the player was afk
      */
-    Inactive(-1),
+    Inactive,
 
     /**
      * Combined [Active] and [Inactive] playtime
      */
-    All(0),
+    All,
 }

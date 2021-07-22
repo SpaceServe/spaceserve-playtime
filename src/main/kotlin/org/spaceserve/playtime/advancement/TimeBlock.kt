@@ -2,11 +2,9 @@
 
 package org.spaceserve.playtime.advancement
 
-import kotlinx.serialization.Serializable
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
-@Serializable
 data class TimeBlock(
     val milliseconds: Long = 0,
     val seconds: Long = 0,

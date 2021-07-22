@@ -1,4 +1,3 @@
-@file:UseSerializers(IdentifierSerializer::class)
 @file:OptIn(ExperimentalTime::class)
 
 package org.spaceserve.playtime.advancement
@@ -8,12 +7,10 @@ import kotlinx.serialization.*
 import kotlinx.serialization.json.Json
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
-import org.spaceserve.config.serializers.IdentifierSerializer
 import org.spaceserve.playtime.api.ITrackPlaytime
 import org.spaceserve.playtime.api.PlaytimeType
 import kotlin.time.ExperimentalTime
 
-@Serializable
 data class PlaytimePredicate(
     val time: TimeBlock = TimeBlock.ZERO,
 

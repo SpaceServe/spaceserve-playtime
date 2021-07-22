@@ -29,8 +29,8 @@ repositories {
     }
 
     maven {
-        name = "Modrinth"
-        url = uri("https://api.modrinth.com/maven")
+        name = "JitPack"
+        url = uri("https://jitpack.io")
     }
 }
 
@@ -39,6 +39,7 @@ dependencies {
     minecraft("com.mojang:minecraft:$mcVersion")
     mappings("net.fabricmc:yarn:$yarnVersion:v2")
     modImplementation("net.fabricmc:fabric-loader:$loaderVersion")
+    modImplementation(fabricApi.module("fabric-lifecycle-events-v1", fabricApiVersion))
     testImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
 
     // Kotlin
@@ -49,8 +50,8 @@ dependencies {
     // Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinxSerializationVersion")
 
-    // Config
-    modImplementation("maven.modrinth:config:$configVersion")
+    // Aegis
+    modImplementation("com.github.P03W:Aegis:3.0.0")
 
     // Tests
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")

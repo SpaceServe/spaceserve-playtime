@@ -7,6 +7,8 @@
     "DataStorage",
     "PlaytimeCriterionTrigger",
     "PlaytimeTracking",
+    "ReloadScoreboardCriteria",
+    "UpdatePlaytimeScores",
     "EmptyJavaMixin"
   ],
 
