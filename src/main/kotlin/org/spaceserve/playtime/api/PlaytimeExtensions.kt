@@ -15,6 +15,13 @@ val ServerPlayerEntity.playtime: Duration
     get() = (this as ITrackPlaytime).getPlaytime()
 
 /**
+ * If the player is currently afk
+ * @see ITrackPlaytime.isAfk
+ */
+val ServerPlayerEntity.isAfk: Boolean
+    get() = (this as ITrackPlaytime).isAfk
+
+/**
  * Gets the playtime based on the provided conditions
  *
  * @param dimensions The dimensions that the playtime occurred in, or null (default) for all dimensions

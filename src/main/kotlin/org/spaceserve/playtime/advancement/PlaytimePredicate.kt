@@ -7,8 +7,8 @@ import kotlinx.serialization.*
 import kotlinx.serialization.json.Json
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
-import org.spaceserve.playtime.api.ITrackPlaytime
 import org.spaceserve.playtime.api.PlaytimeType
+import org.spaceserve.playtime.api.conditionalPlaytime
 import kotlin.time.ExperimentalTime
 
 data class PlaytimePredicate(
@@ -32,7 +32,7 @@ data class PlaytimePredicate(
      * Determines if the player has satisfied the playtime requirements
      */
     fun test(player: ServerPlayerEntity): Boolean {
-        val playtime = (player as ITrackPlaytime).conditionalPlaytime(
+        val playtime = player.conditionalPlaytime(
             dimensions,
             when (afk) { true -> PlaytimeType.Inactive; false -> PlaytimeType.Active; else -> PlaytimeType.All}
         )
