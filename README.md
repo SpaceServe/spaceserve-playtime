@@ -2,17 +2,17 @@
 An easy to use api for all your playtime needs. [Playtime Tracker](https://modrinth.com/mod/playtime-tracker) is a simple 
 implementation of this library that tracks playtime, has simple leaderboards, and more. 
 
- - [x] Track Playtime
-     - [x] All playtime
-     - [x] Improved afk detection
-     - [x] Afk time
-     - [x] Non-afk playtime
-     - [x] The above, but dimension specific
- - [x] Playtime Triggers and Events
-     - [x] Playtime event on afk and on active
-     - [x] All playtime types as advancement triggers
-     - [x] All playtime types as scoreboard objectives 
- - [x] Simple playtime to Duration conversion
+ - Track Playtime
+     - All playtime
+     - Improved afk detection
+     - Afk time
+     - Non-afk playtime
+     - The above, but dimension specific
+ - Playtime Triggers and Events
+     - Playtime event on afk and on active
+     - All playtime types as advancement triggers
+     - All playtime types as scoreboard objectives 
+ - Simple playtime to Duration conversion
 
 ## Add to your project
 ```kotlin
